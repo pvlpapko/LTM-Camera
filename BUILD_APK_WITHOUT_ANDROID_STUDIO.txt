@@ -1,0 +1,11 @@
+Как собрать APK без установки Android Studio:
+
+1. Создай пустой репозиторий на GitHub.
+2. Загрузи туда все файлы из этой папки проекта.
+3. Открой вкладку Actions.
+4. Запусти workflow: Build Android APK.
+5. После сборки скачай artifact: LowLatencyCamStreamer-debug-apk.
+
+APK будет находиться внутри artifact ZIP.
+
+Если сборка упадёт на WebRTC/SRT-зависимостях, отключи их в app/build.gradle.kts или пришли лог ошибки — проект можно упростить до чистого RTSP/CameraX APK.

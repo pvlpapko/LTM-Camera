@@ -1,0 +1,2 @@
+-keep class com.pedro.** { *; }
+-keep class org.webrtc.** { *; }
