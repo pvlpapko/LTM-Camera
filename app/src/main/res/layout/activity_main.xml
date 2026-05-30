@@ -1,77 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#111111"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <com.pedro.library.view.OpenGlView
-        android:id="@+id/openGlView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LowLatencyCamStreamer"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-    <ScrollView
+    <Button
+        android:id="@+id/btnSwitchCamera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fillViewport="false">
+        android:text="Switch Camera" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="12dp">
+    <Switch
+        android:id="@+id/switchMic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Microphone On / Off" />
 
-            <TextView
-                android:id="@+id/statusText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Готово"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp" />
+    <Switch
+        android:id="@+id/switchAutofocus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Autofocus" />
 
-            <EditText
-                android:id="@+id/urlEdit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="rtsp://192.168.1.10:8554/live или srt://host:9000?mode=caller"
-                android:singleLine="true"
-                android:text="srt://192.168.1.10:9000?mode=caller&latency=40"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#999999" />
+    <SeekBar
+        android:id="@+id/seekColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100" />
 
-            <RadioGroup
-                android:id="@+id/modeGroup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <RadioButton android:id="@+id/modeRtspServer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="RTSP server" android:textColor="#FFFFFF" />
-                <RadioButton android:id="@+id/modePush" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="RTSP/SRT push" android:textColor="#FFFFFF" />
-                <RadioButton android:id="@+id/modeWebRtc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="WebRTC" android:textColor="#FFFFFF" />
-            </RadioGroup>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RTSP/SRT &amp; Low Latency Mode" />
 
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                <Button android:id="@+id/startButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Старт" />
-                <Button android:id="@+id/stopButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Стоп" />
-                <Button android:id="@+id/switchCameraButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Камера" />
-            </LinearLayout>
-
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                <Switch android:id="@+id/micSwitch" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:checked="true" android:text="Микрофон" android:textColor="#FFFFFF" />
-                <Switch android:id="@+id/autofocusSwitch" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:checked="true" android:text="Автофокус" android:textColor="#FFFFFF" />
-            </LinearLayout>
-
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Битрейт видео, Mbps" android:textColor="#FFFFFF" />
-            <SeekBar android:id="@+id/bitrateSeek" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="18" android:progress="5" />
-
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Экспозиция / яркость" android:textColor="#FFFFFF" />
-            <SeekBar android:id="@+id/exposureSeek" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="12" android:progress="6" />
-
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Контраст / цвет: пресеты фильтра" android:textColor="#FFFFFF" />
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                <Button android:id="@+id/filterNormal" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Норма" />
-                <Button android:id="@+id/filterBright" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Ярче" />
-                <Button android:id="@+id/filterMono" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Ч/Б" />
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
 </LinearLayout>
