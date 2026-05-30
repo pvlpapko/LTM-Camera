@@ -12,14 +12,15 @@ android {
         minSdk = 29
         targetSdk = 35
         versionCode = 1
-        versionName = "1.0.0"
-        vectorDrawables.useSupportLibrary = true
+        versionName = "1.0"
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+        debug {
+            isMinifyEnabled = false
         }
     }
 
@@ -27,20 +28,27 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions { jvmTarget = "17" }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(
+            org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+        )
+    }
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.15.0")
+    implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.12.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.2.0")
 
-    // RTSP/SRT low-latency encoder stack. RootEncoder uses Android MediaCodec hardware encoding.
+    implementation("androidx.camera:camera-core:1.3.4")
+    implementation("androidx.camera:camera-camera2:1.3.4")
+    implementation("androidx.camera:camera-lifecycle:1.3.4")
+    implementation("androidx.camera:camera-view:1.3.4")
+
     implementation("com.github.pedroSG94.RootEncoder:library:2.7.2")
-    implementation("com.github.pedroSG94:RTSP-Server:1.4.1")
-
-    // WebRTC dependency is included for the next step: WHIP/signaling integration.
-    // The current Activity exposes RTSP server + RTSP/SRT push modes first.
-    implementation("io.github.webrtc-sdk:android:144.7559.05")
+    implementation("com.github.pedroSG94.RootEncoder:rtsp:2.7.2")
+    implementation("com.github.pedroSG94.RootEncoder:srt:2.7.2")
 }
